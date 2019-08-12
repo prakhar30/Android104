@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Android104</string>
     <string name="dataMenu">Data</string>
+    <string name="name_info_label">Enter your name</string>
+    <string name="phone_info_label">Enter your phone</string>
+    <string name="email_info_label">Enter your email</string>
+    <string name="button_info_label">Save</string>
 </resources>
