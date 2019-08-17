@@ -3,14 +3,20 @@ package com.example.android104
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        button.setOnClickListener {
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -29,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    fun navigateToDataPage() {
+    private fun navigateToDataPage() {
         val intent = Intent(this, DataActivity::class.java)
         startActivity(intent)
     }
