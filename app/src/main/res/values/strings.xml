@@ -5,4 +5,7 @@
     <string name="phone_info_label">Enter your phone</string>
     <string name="email_info_label">Enter your email</string>
     <string name="button_info_label">Save</string>
+    <string name="name_text_box">Your name here</string>
+    <string name="phone_text_box">Your phone is</string>
+    <string name="email_text_box">Your email is</string>
 </resources>
