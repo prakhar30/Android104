@@ -1,5 +1,6 @@
 package com.example.android104
 
+import android.graphics.Color
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +19,12 @@ class RecyclerAdapter(private val userdata: ArrayList<UserData>) : RecyclerView.
     }
 
     override fun onBindViewHolder(holder: UserDataHolder, position: Int) {
+        if (position % 2 == 0) {
+            holder.itemView.setBackgroundColor(Color.parseColor("#c9ee82"))
+        } else {
+            holder.itemView.setBackgroundColor(Color.parseColor("#eea782"))
+        }
+
         val data = userdata[position]
         holder.bindUserData(data)
     }

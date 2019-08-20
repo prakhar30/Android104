@@ -37,7 +37,7 @@ class DataActivity : AppCompatActivity() {
             val user1 = UserData("Prakhar", "123", "123")
             val user2 = UserData("Prakhar 2", "123", "123")
             val user3 = UserData("Prakhar 3", "123", "123")
-            
+
             photosList.add(user1)
             photosList.add(user2)
             photosList.add(user3)
