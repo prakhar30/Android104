@@ -3,10 +3,11 @@ package com.example.android104
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Button
+import android.widget.Toast
+import com.example.android104.Database.DatabaseManager
+import com.example.android104.Database.UserRecord
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -16,6 +17,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         button.setOnClickListener {
+            val name = editText.text.toString()
+            val email = editText2.text.toString()
+            val phone = editText3.text.toString()
+
+            val userRecord = UserRecord(name, phone, email)
+            DatabaseManager.getInstance(applicationContext)!!.userRecordDao().insert(userRecord)
+
+            Toast.makeText(applicationContext, "User Record Saved!", Toast.LENGTH_SHORT).show()
+
+            editText.text.clear()
+            editText2.text.clear()
+            editText3.text.clear()
         }
     }
 
