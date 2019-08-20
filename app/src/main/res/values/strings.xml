@@ -8,4 +8,5 @@
     <string name="name_text_box">Your name here</string>
     <string name="phone_text_box">Your phone is</string>
     <string name="email_text_box">Your email is</string>
+    <string name="data_delete_button_title">Delete Last Row</string>
 </resources>

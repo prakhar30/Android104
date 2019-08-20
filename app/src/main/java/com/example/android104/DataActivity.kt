@@ -21,6 +21,13 @@ class DataActivity : AppCompatActivity() {
 
         adapter = RecyclerAdapter(photosList)
         my_recycler_view.adapter = adapter
+
+        button2.setOnClickListener {
+            if (photosList.size > 0) {
+                photosList.removeAt(photosList.size - 1)
+                adapter.notifyDataSetChanged()
+            }
+        }
     }
 
     override fun onStart() {
@@ -30,12 +37,12 @@ class DataActivity : AppCompatActivity() {
             val user1 = UserData("Prakhar", "123", "123")
             val user2 = UserData("Prakhar 2", "123", "123")
             val user3 = UserData("Prakhar 3", "123", "123")
+            
             photosList.add(user1)
-            adapter.notifyItemInserted(0)
             photosList.add(user2)
-            adapter.notifyItemInserted(1)
             photosList.add(user3)
-            adapter.notifyItemInserted(2)
+
+            adapter.notifyDataSetChanged()
         }
     }
 }
