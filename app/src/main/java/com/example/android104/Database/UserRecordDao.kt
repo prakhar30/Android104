@@ -18,4 +18,7 @@ interface UserRecordDao {
 
     @Query("SELECT COUNT(id) FROM userRecords")
     fun count(): Int
+
+    @Query("DELETE FROM userRecords")
+    fun clear()
 }

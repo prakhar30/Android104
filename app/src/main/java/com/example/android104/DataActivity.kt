@@ -25,7 +25,8 @@ class DataActivity : AppCompatActivity() {
 
         button2.setOnClickListener {
             if (userList.size > 0) {
-                userList.removeAt(userList.size - 1)
+                DatabaseManager.getInstance(applicationContext)!!.userRecordDao().clear()
+                userList.clear()
                 adapter.notifyDataSetChanged()
             }
         }
