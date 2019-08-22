@@ -30,6 +30,9 @@ class DataActivity : AppCompatActivity() {
                 adapter.notifyDataSetChanged()
             }
         }
+
+        button3.setOnClickListener {
+        }
     }
 
     override fun onStart() {
