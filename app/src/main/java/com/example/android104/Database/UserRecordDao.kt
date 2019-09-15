@@ -16,6 +16,9 @@ interface UserRecordDao {
     @Query("DELETE FROM userRecords WHERE id = :path")
     fun deleteByPath(path: Int)
 
+    @Query("DELETE FROM userRecords WHERE email = :email")
+    fun deleteByEmail(email: String)
+
     @Query("SELECT COUNT(id) FROM userRecords")
     fun count(): Int
 

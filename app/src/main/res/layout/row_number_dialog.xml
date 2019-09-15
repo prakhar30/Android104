@@ -11,8 +11,8 @@
         android:layout_marginTop="@dimen/dialog_margin_textview"
         android:layout_marginRight="@dimen/dialog_margin_textview"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Row Number"/>
+        android:hint="Email"
+        android:inputType="textPersonName" />
 
     <LinearLayout
         android:layout_width="match_parent"

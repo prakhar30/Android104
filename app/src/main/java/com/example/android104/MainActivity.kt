@@ -19,18 +19,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         button.setOnClickListener {
-            val name = editText.text.toString()
-            val email = editText2.text.toString()
-            val phone = editText3.text.toString()
+            val name = nameEditText.text.toString()
+            val phone = phoneEditText.text.toString()
+            val email = emailEditText.text.toString()
 
             val userRecord = UserRecord(name, phone, email)
             DatabaseManager.getInstance(applicationContext)!!.userRecordDao().insert(userRecord)
 
             Toast.makeText(applicationContext, "User Record Saved!", Toast.LENGTH_SHORT).show()
 
-            editText.text.clear()
-            editText2.text.clear()
-            editText3.text.clear()
+            nameEditText.text.clear()
+            phoneEditText.text.clear()
+            emailEditText.text.clear()
 
             focusFirstEditText()
         }
@@ -64,8 +64,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun focusFirstEditText() {
-        editText.requestFocus()
+        nameEditText.requestFocus()
         val inputMethodManager = applicationContext!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT)
+        inputMethodManager.showSoftInput(nameEditText, InputMethodManager.SHOW_IMPLICIT)
     }
 }

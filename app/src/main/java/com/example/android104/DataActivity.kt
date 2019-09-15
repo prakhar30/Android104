@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android104.Database.DatabaseManager
@@ -39,13 +40,13 @@ class DataActivity : AppCompatActivity() {
             val mDialogView = LayoutInflater.from(this).inflate(R.layout.row_number_dialog, null)
             val mBuilder = AlertDialog.Builder(this)
                     .setView(mDialogView)
-                    .setTitle("Delete Row with Number")
+                    .setTitle("Delete Row with Email")
             val  mAlertDialog = mBuilder.show()
 
             mDialogView.dialogDeleteBtn.setOnClickListener {
                 mAlertDialog.dismiss()
-                val name = mDialogView.editText4.text.toString()
-                Log.d("App", name)
+                val email = mDialogView.editText4.text.toString()
+                deleteRow(email)
             }
 
             mDialogView.dialogCancelBtn.setOnClickListener {
@@ -61,6 +62,23 @@ class DataActivity : AppCompatActivity() {
         for (record in list) {
             val user = UserData(record.name!!, record.phoneNumber!!, record.email!!)
             userList.add(user)
+        }
+    }
+
+    fun deleteRow(email: String) {
+        if (email == "") {
+            Toast.makeText(applicationContext, "Email cannot be empty", Toast.LENGTH_SHORT).show()
+        } else {
+            for (user in userList) {
+                Log.d("App", user.email)
+                if (user.email == email) {
+                    DatabaseManager.getInstance(applicationContext)!!.userRecordDao().deleteByEmail(email)
+                    userList.remove(user)
+                    adapter.notifyDataSetChanged()
+                    return
+                }
+            }
+            Toast.makeText(applicationContext, "Email not found.", Toast.LENGTH_SHORT).show()
         }
     }
 }
