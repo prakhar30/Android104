@@ -2,9 +2,13 @@ package com.example.android104
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.LayoutInflater
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android104.Database.DatabaseManager
 import kotlinx.android.synthetic.main.activity_data.*
+import kotlinx.android.synthetic.main.row_number_dialog.view.*
 import java.util.ArrayList
 
 class DataActivity : AppCompatActivity() {
@@ -32,6 +36,21 @@ class DataActivity : AppCompatActivity() {
         }
 
         button3.setOnClickListener {
+            val mDialogView = LayoutInflater.from(this).inflate(R.layout.row_number_dialog, null)
+            val mBuilder = AlertDialog.Builder(this)
+                    .setView(mDialogView)
+                    .setTitle("Delete Row with Number")
+            val  mAlertDialog = mBuilder.show()
+
+            mDialogView.dialogDeleteBtn.setOnClickListener {
+                mAlertDialog.dismiss()
+                val name = mDialogView.editText4.text.toString()
+                Log.d("App", name)
+            }
+
+            mDialogView.dialogCancelBtn.setOnClickListener {
+                mAlertDialog.dismiss()
+            }
         }
     }
 

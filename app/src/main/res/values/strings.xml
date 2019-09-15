@@ -10,4 +10,5 @@
     <string name="email_text_box">Your email is</string>
     <string name="data_delete_button_title">Clear database</string>
     <string name="manual_delete_button">Delete a row</string>
+    <string name="dialog_title">Enter the row number you want to delete</string>
 </resources>
